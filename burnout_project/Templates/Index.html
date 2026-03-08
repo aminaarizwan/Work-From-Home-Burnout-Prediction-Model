@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burnout Predictor</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <h2>Work From Home Burnout Predictor</h2>
+    import streamlit as st
+
+# Page config (optional but professional)
+st.set_page_config(page_title="Burnout Predictor", page_icon="🔥", layout="centered")
+
+# Centered title
+st.markdown("""
+    <div style="text-align: center;">
+        <h1>Work From Home Burnout Predictor</h1>
+        <p style="font-size:16px;">Enter your work details</p>
+    </div>
+""", unsafe_allow_html=True)
+
+    <p class="subtitle">Enter your daily work details to estimate burnout level</p>
+
+    <form method="POST">
+
+        <div class="input-group">
+            <label>Work Hours</label>
+            <input type="number" step="0.1" name="work_hours" required>
+        </div>
+
+        <div class="input-group">
+            <label>Screen Time Hours</label>
+            <input type="number" step="0.1" name="screen_time_hours" required>
+        </div>
+
+        <div class="input-group">
+            <label>Meetings Count</label>
+            <input type="number" name="meetings_count" required>
+        </div>
+
+        <div class="input-group">
+            <label>Breaks Taken</label>
+            <input type="number" name="breaks_taken" required>
+        </div>
+
+        <div class="input-group">
+            <label>After Hours Work</label>
+            <input type="number" name="after_hours_work" required>
+        </div>
+
+        <div class="input-group">
+            <label>Sleep Hours</label>
+            <input type="number" step="0.1" name="sleep_hours" required>
+        </div>
+
+        <div class="input-group">
+            <label>Task Completion Rate</label>
+            <input type="number" step="0.1" name="task_completion_rate" required>
+        </div>
+
+        <button type="submit">Predict Burnout</button>
+
+    </form>
+
+    {% if score %}
+    <div class="result-box">
+        <h2>Burnout Score: {{ score }}</h2>
+        <h2>Burnout Risk: {{ risk }}</h2>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
